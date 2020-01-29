@@ -71,6 +71,11 @@ class Rational:
             # will most likely result in an exception being thrown
         return Rational(int(numerator_sum), lcm_)
 
+    def __radd__(self, other):
+        """Add an int and a Rational (reversed)."""
+        # mapping is reversed: in "1 + x", x maps to self, and 1 maps to other
+        return self.__add__(other)
+
     def __sub__(self, other):
         """Subtract two Rationals."""
         if isinstance(other, int):
@@ -86,6 +91,11 @@ class Rational:
             pass
             # will most likely result in an exception being thrown
         return Rational(int(numerator_diff), lcm_)
+
+    def __rsub__(self, other):
+        """Add an int and a Rational (reversed)."""
+        # mapping is reversed: in "1 - x", x maps to self, and 1 maps to other
+        return self.__sub__(other)
 
     def reduce_rational(self):
         """Return the reduced fractional value as a Rational."""
@@ -119,10 +129,6 @@ if __name__ == "__main__":
     d = 1
     print(f"{c} + {d} = {c + d}")
 
-    e = Rational(3, 3)
-    f = 1
-    print(f"{e} == {f} is {e == f}")
-
-    g = 1
-    h = Rational(3, 3)
-    print(f"{g} == {h} is {g == h}")
+    e = 1
+    f = Rational(1, 5)
+    print(f"{e} + {f} = {e + f}")
