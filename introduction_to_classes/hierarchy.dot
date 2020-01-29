@@ -1,0 +1,11 @@
+digraph H{
+    node [shape=oval, fixedsize=true, width=1.4]
+    person [root=true, rank=max]
+    person -> faculty [dir=back]
+    faculty -> "full-time" [dir=back]
+    faculty -> "part-time" [dir=back]
+    person -> student [dir=back]
+    student -> undergrad [dir=back]
+    student -> graduate [dir=back]
+    graduate -> ta [dir=back]
+}

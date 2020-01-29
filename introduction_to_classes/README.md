@@ -190,3 +190,34 @@ point.Point(3.000000, 4.300000)
 Python does have a guiding philosophy that states, "We are all adults here." If the designer of a class indicates something should be private, the a programmer violates that privacy at their own risk.
 
 On the other hand, getters and setters are a pattern that is widely used in languages that do support "proper" encapsulation meaning the interface for using properties on an object will be familiar to programmers used to writing in those languages.
+
+## Python and OOP
+
+Previously I said there are three pillars to OOP
+
+- Encapsulation
+- Inheritance
+- Polymorphism
+
+### Encapsulation
+
+Understanding the details underlying a class' structure should not be necessary to use the class. Python gives the class designer the ability to create methods as the interface to the class' instances. This allows the class designer to change the underlying code without fear of breaking code that uses the class.
+
+### Inheritance
+
+Inheritance allows for using the design of an existing class to create a new, related class. That is, the new class _specializes_ or _extends_ an existing class by using all of the existing class' functionality, specializing only those attributes that distinguish the new class.
+
+This is done by first creating a _parent-child_ relation ship between our classes. Secondly, there needs to be a mechanism by which attributes can be searched for not only in the child class but also its parent class, or in the parent of _that_ parent, on and on up the inheritance chain.
+
+![](hierarchy.png)
+
+### Polymorphism
+
+Polymorphism is the process of using an operator (such as plus `+`) or a method (such as `len`) to perform different operations depending on the types that invoke them.
+
+```python
+>>> 2 + 3
+5
+>>> "hello " + "world"
+'hello world'
+```
