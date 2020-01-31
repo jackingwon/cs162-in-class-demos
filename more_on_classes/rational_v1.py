@@ -1,3 +1,5 @@
+#! /usr/bin/env python3.7
+
 """A class representing rational numbers.
 
 A rational number is a number that can be expressed as the ratio of two
@@ -33,7 +35,7 @@ class Rational:
 
     def __str__(self):
         """Compute string representation for printing."""
-        return f"{self.__numerator}/{self.__denominator}"
+        return f"{self.numerator}/{self.denominator}"
 
     def __repr__(self):
         """Use in the interpreter. Call __str__ for now."""
@@ -45,3 +47,6 @@ if __name__ == "__main__":
     print(rational_1)
     print(f"numerator = {rational_1.numerator}")
     print(f"denominator = {rational_1.denominator}")
+    print(type(rational_1))
+    print(isinstance(rational_1, Rational))
+    print(isinstance(rational_1, int))

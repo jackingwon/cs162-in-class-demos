@@ -1,5 +1,6 @@
-"""A class representing rational numbers.
+#! /usr/bin/env python3.7
 
+"""A class representing rational numbers.
 A rational number is a number that can be expressed as the ratio of two
 integer values. That is,
 
@@ -81,8 +82,8 @@ if __name__ == "__main__":
 
     c = Rational(1, 5)
     d = Rational(1, 3)
-    print(f"{c} + {d} = {c - d}")
+    print(f"{c} + {d} = {c + d}")
 
-    e = Rational(1, 10)
-    f = Rational(2, 5)
-    print(f"{e} + {f} = {e + f}")
+    c = Rational(1, 5)
+    d = Rational(1, 3)
+    print(f"{c} - {d} = {c - d}")

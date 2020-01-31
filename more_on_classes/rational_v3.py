@@ -1,3 +1,5 @@
+#! /usr/bin/env python3.7
+
 """A class representing rational numbers.
 
 A rational number is a number that can be expressed as the ratio of two
@@ -82,7 +84,7 @@ class Rational:
         """Compare two Rationals for equality, return Boolean."""
         # reduce both; then check that numerators and denominators are equal
         reduced_self = self.reduce_rational()
-        reduced_param = other.reduce_rational()
+        reduced_other = other.reduce_rational()
         return (
             reduced_self.numerator == reduced_param.numerator
             and reduced_self.denominator == reduced_param.denominator

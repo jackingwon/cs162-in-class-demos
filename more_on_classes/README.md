@@ -8,9 +8,9 @@ As previously mentioned, there are three main OOP characteristics: encapsulation
 
 In our discussion of encapsulation we have focused on its ability to:
 
-- __Hide details__ of implementation to aid reading and understanding of code.
-- Provides __modularity__ that makes it easier to use a class in other contexts.
-- Provides an __interface__ in the form of methods to access and manipulate a class instance.
+- **Hide details** of implementation to aid reading and understanding of code.
+- Provides **modularity** that makes it easier to use a class in other contexts.
+- Provides an **interface** in the form of methods to access and manipulate a class instance.
 
 To this, let's add _consistency_:
 
@@ -34,14 +34,14 @@ A class is a type.
 
 When you create a new class you are creating a new type.
 
-__Remember:__ types belong not to a variable but to the _value_ it is associated with.
+**Remember:** types belong not to a variable but to the _value_ it is associated with.
 
 Because these values can change, it is useful to be able to inquire about the type of object presently associated with a variable.
 
 Python provides two introspection methods: `type()` and `isinstance()`.
 
 - `type` takes an identifier and returns a string indicating the type of the object currently referenced by the identifier passed to it.
-- `isinstance` takes as arguments an identifier and a type and returns a Boolean indicating whether or not the object referenced by the identifier is of the specified type; __note__ `isinstance` checks if the referenced object comes under inheritance hierarchy of base class.
+- `isinstance` takes as arguments an identifier and a type and returns a Boolean indicating whether or not the object referenced by the identifier is of the specified type; **note** `isinstance` checks if the referenced object comes under inheritance hierarchy of base class.
 
 ![](hierarchy.png)
 
@@ -80,7 +80,7 @@ If the denominators are the same we simply add the numerators and keep the denom
 
 If the fractions do not share a denominator we must manipulate them so that they do. One method to accomplish this os to find the _least common multiple (LCM)_ of the two denominators. The LCM is the smallest number that each of the denominators divide into evenly; that is, without a remainder.
 
-The LCM is most easily computed in terms of another value, the _greatest common divisor (GCD)`. The GCD is the largest value that divides two values without a remainder.
+The LCM is most easily computed in terms of another value, the \_greatest common divisor (GCD)`. The GCD is the largest value that divides two values without a remainder.
 
 `LCM(a, b) = (a * b) / (GCD(a, b))`
 
@@ -230,3 +230,43 @@ When confronted with an addition like this, Python carries out the following ste
 1. Python tries to find an appropriate `__add__()` on the _first_ operand; the `int` in this case. If no appropriate method is found, Python raises an error.
 1. In response to the error from above, Python checks for the existence of an `__radd__()` method on the _second_ operand. If it exists, Python calls it.
 1. If neither work, Python raises an error.
+
+## Inheritance
+
+We've talked a lot about _encapsulation_, and just finished doing a fair amount of work involving _polymorpism_, now let us investigate _inheritance_.
+
+### Find the Attribute
+
+Previously we discussed how information is shared between classes and instances.
+
+1. A single class may have multiple instances, where each instance is initialized by the class' `__init__()`.
+1. When initialized, one of the instance's attributes is the `__class__` attribute which indicates what the base class of the object is. This establishes the _instance-of_ relationship.
+1. When referencing an attribute, Python first looks in the instance for the requested attribute and, if not found there, it looks in the class that this object was derived from. In this way, attributes stored in the class are available to every instance derived from that class.
+
+Python extends the "find the attribute" search algorithm to include classes other than the one the object was derived from.
+
+#### Class "is-a" Relationship and the Class Hierarchy
+
+Every class maintains at least one _parent_ class. Such classes are said to have a "parent-child," "superclass-subclass," or "base class-derived class" relationship.
+
+Whatever terminology you use, the relationship is meant to represent the specialization of an object and is often called an _is-a_ relationship.
+
+![](hierarchy.png)
+
+_is-a_ is a one way relationship.
+
+Each Python class indicates in its definition who its parent class is. This relationship gets recorded in the `__bases__` attribute of each class.
+
+`simple_hierarchy.py`
+
+##### The Final Find the Attribute Algorithm
+
+When looking for an attribute, Python will:
+
+1. Look in the instance; if not found there, go on.
+1. Look in the class of the instance (up the _instance-of_ relationship); if not there, go on.
+1. Look up the class parent link, the _is-a_ relationship and look in the parent class.
+1. Continue up the _is-a_ links searching each class in turn all the way up to `object`.
+1. If you get to `object` and still haven't found the requested attribute, raise an error.
+
+###
