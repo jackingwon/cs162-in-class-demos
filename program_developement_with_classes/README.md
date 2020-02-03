@@ -38,3 +38,9 @@ We now need to identify for each class:
 ### Island Class
 
 `island.py`
+
+### Predator and Prey, Kinds of Animals
+
+#### Animal Object
+
+The animal object will store properties that are common to all animals.
