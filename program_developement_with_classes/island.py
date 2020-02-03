@@ -4,7 +4,7 @@
 
 
 class Island:
-    """Island
+    """Model an island.
 
     An n X n grid where a zero value indicates an unoccupied cell.
     """
