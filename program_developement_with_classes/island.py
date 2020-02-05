@@ -9,13 +9,14 @@ class Island:
     An n X n grid where a zero value indicates an unoccupied cell.
     """
 
-    def __init__(self, n):
+    def __init__(self, n, prey_cnt=0, predator_cnt=0):
         """Initialize cell to all 0's, then fill with animals"""
         self.__grid_size = n
         self.__grid = []
         for _ in range(n):
             row = [0] * n  # row is a list of n zeros
             self.__grid.append(row)
+        # self._init_animals(prey_cnt, predator_cnt)
 
     @property
     def grid_size(self):
