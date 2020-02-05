@@ -43,4 +43,24 @@ We now need to identify for each class:
 
 #### Animal Object
 
-The animal object will store properties that are common to all animals.
+What state does each `Animal` instance need? One thing each animal needs to know is where it is on the island.
+
+The question is, where do we store that information&nbsp;with the `Animal` instance, withe the `Island` instance? Or both?
+
+Each `Animal` needs to know where it is, its local information, but it also needs to be aware of its surroundings, the global information. Additionally, we want to control how many animals are in the same place at the same time.
+
+Each `Animal` will have as its _local state_ its location on the island by way of its `x` and `y` coordinates. The `Island` will track _global state_ by marking each grid location with what is presently there.
+
+`Animal` objects need the following:
+
+- Its name &ndash; a string, e.g., `"moose"` or `"wolf"`
+- Its location &ndash; `(x, y)` coordinates on the island
+- The `Island` instance that is is on
+
+
+We need to inform the `Island` when an `Animal` is added to the island with the `register` method.
+
+Additionally, each `Animal` instance will need to know how big the `Island` is so that it can move around without falling off the edge. We can use the `grid_size` property the `Island` class for this.
+
+`animal.py`
+`island.py`
