@@ -10,7 +10,7 @@ class Island:
     """
 
     def __init__(self, n, prey_cnt=0, predator_cnt=0):
-        """Initialize cell to all 0's, then fill with animals"""
+        """Initialize cell to all 0's, then fill with animals."""
         self.__grid_size = n
         self.__grid = []
         for _ in range(n):
@@ -28,8 +28,14 @@ class Island:
         """Get the grid representing the island."""
         return self.__grid
 
+    def register(self, animal):
+        """Register an Animal with the island."""
+        x, y = animal.position
+
+        self.grid[x][y] = animal
+
     def __str__(self):
-        """String representation for printing.
+        """Return a string representation for printing.
 
         (0,0) will be in the lower-left corner.
         """
