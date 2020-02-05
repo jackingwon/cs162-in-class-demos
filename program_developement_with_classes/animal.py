@@ -24,7 +24,7 @@ class Animal(object):
 
     @property
     def position(self):
-        """Get the Animal's position (its x, y coordinates) on the Island."""
+        """Get the Animal's position on the Island."""
         return (self.__x, self.__y)
 
     def __str__(self):
